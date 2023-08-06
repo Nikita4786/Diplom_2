@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "6.5.0.3"
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.spring.io/libs-release"
+    }
+    maven { url "https://repo.spring.io/libs-release" }
+    maven { url "https://repo.spring.io/libs-milestone" }
+    maven { url "https://repo.spring.io/libs-snapshot" }
+    maven {
+        url "https://repo1.maven.org/maven2/"
+    }
+}
+
+allure {
+    version = '2.23.0'
+
+    useJUnit5 {
+        version = '2.23.0'
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+
+    implementation 'io.rest-assured:rest-assured:5.3.1'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
+
+    implementation 'org.postgresql:postgresql:42.6.0'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'org.springframework:spring-jdbc:5.3.14'
+
+    implementation 'org.aspectj:aspectjweaver:1.9.6'
+    implementation 'io.qameta.allure:allure-junit5:2.23.0'
+    implementation 'io.qameta.allure:allure-commandline:2.23.0'
+    implementation 'io.qameta.allure:allure-assertj:2.23.0'
+    implementation 'io.qameta.allure:allure-rest-assured:2.23.0'
+    implementation 'io.qameta.allure:allure-java-commons:2.23.0'
+    implementation 'io.qameta.allure:allure-selenide:2.23.0'
+
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.4.1'
+    implementation group: 'com.codeborne', name: 'selenide', version: '6.16.1'
+    implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+
+    implementation 'net.datafaker:datafaker:1.7.0'
+
+}
+
+apply plugin: "io.qameta.allure"
+
+test {
+    useJUnitPlatform()
+}
