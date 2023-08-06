@@ -35,7 +35,7 @@
 | NegativeTests    |       9       |   7    |   2    |     77.7% |
 | Всего            |      23       |   17   |   6    |    73.91% |
 
-В результате было составлено 3 баг-репорта https://github.com/Nikita4786/Diplom_2/issues 
+В результате было составлено 3 баг-репорта [issue](https://github.com/Nikita4786/Diplom_2/issues).
 
 ## Общие рекомендации
 
