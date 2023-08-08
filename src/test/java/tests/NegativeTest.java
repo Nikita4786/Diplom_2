@@ -19,9 +19,8 @@ class NegativeTest extends BaseTestClass {
                 .fillCardCVV(VALID_CVV)
                 .clickSubmitButton()
                 .submitButtonLoaderIsVisible()
-                .notificationErrorIsVisible()
-                .notificationOkTextContains("Ошибка");
-        String status = JdbcConnector.getLastStatusFromDB();
+                .notificationErrorIsVisible();
+        String status = JdbcConnector.getLastDebitStatusFromDB();
         Assertions.assertEquals(status, DECLINED_STATUS);
     }
 
@@ -37,9 +36,8 @@ class NegativeTest extends BaseTestClass {
                 .fillCardCVV(VALID_CVV)
                 .clickSubmitButton()
                 .submitButtonLoaderIsVisible()
-                .notificationErrorIsVisible()
-                .notificationOkTextContains("Ошибка");
-        String status = JdbcConnector.getLastStatusFromDB();
+                .notificationErrorIsVisible();
+        String status = JdbcConnector.getLastCreditStatusFromDB();
         Assertions.assertEquals(status, DECLINED_STATUS);
     }
 

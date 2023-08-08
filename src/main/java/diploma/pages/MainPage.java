@@ -143,36 +143,6 @@ public class MainPage {
         return this;
     }
 
-    public MainPage cardNumberPlaceholderIsVisible() {
-        this.driver.$(CARD_NUMBER_PLACEHOLDER)
-                .shouldBe(visible);
-        return this;
-    }
-
-    public MainPage cardMonthPlaceholderIsVisible() {
-        this.driver.$(CARD_MONTH_PLACEHOLDER)
-                .shouldBe(visible);
-        return this;
-    }
-
-    public MainPage cardYearPlaceholderIsVisible() {
-        this.driver.$(CARD_YEAR_PLACEHOLDER)
-                .shouldBe(visible);
-        return this;
-    }
-
-    public MainPage cardHolderPlaceholderIsVisible() {
-        this.driver.$(CARD_HOLDER_PLACEHOLDER)
-                .shouldBe(visible);
-        return this;
-    }
-
-    public MainPage cardCVVPlaceholderIsVisible() {
-        this.driver.$(CARD_CVV_PLACEHOLDER)
-                .shouldBe(visible);
-        return this;
-    }
-
     @Step("Нажатие на кнопку создания заказа")
     public MainPage clickSubmitButton() {
         this.driver.$(SUBMIT_BUTTON)
@@ -197,6 +167,9 @@ public class MainPage {
 
     @Step("Проверка видимости сообщения об ошибке заказа")
     public MainPage notificationErrorIsVisible() {
+        this.driver.$(SUBMIT_BUTTON_LOADER)
+                .shouldBe(disappear);
+        submitButtonLoaderIsInvisible();
         this.driver.$(NOTIFICATION_ERROR)
                 .shouldBe(visible);
         return this;
@@ -204,18 +177,11 @@ public class MainPage {
 
     @Step("Проверка видимости сообщения об успешности заказа")
     public MainPage notificationOkIsVisible() {
+        this.driver.$(SUBMIT_BUTTON_LOADER)
+                .shouldBe(disappear);
         this.driver.$(NOTIFICATION_OK)
                 .shouldBe(visible);
         return this;
     }
-
-    @Step("Проверка, что текст сообщения об ошибке заказа содержит '{text}'")
-    public MainPage notificationOkTextContains(String text) {
-        this.driver.$(NOTIFICATION_OK)
-                .shouldBe(visible)
-                .shouldHave(partialText(text));
-        return this;
-    }
-
 
 }

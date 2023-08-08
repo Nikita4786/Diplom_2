@@ -12,18 +12,6 @@ import lombok.experimental.Accessors;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class PayResponsePojo {
 
-    @JsonProperty("path")
-    private String path;
-
-    @JsonProperty("error")
-    private String error;
-
-    @JsonProperty("message")
-    private String message;
-
-    @JsonProperty("timestamp")
-    private String timestamp;
-
     @JsonProperty("status")
     private String status;
 }

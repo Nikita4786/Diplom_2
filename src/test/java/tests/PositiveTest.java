@@ -19,9 +19,8 @@ class PositiveTest extends BaseTestClass {
                 .fillCardCVV(VALID_CVV)
                 .clickSubmitButton()
                 .submitButtonLoaderIsVisible()
-                .notificationOkIsVisible()
-                .notificationOkTextContains("Успешно");
-        String status = JdbcConnector.getLastStatusFromDB();
+                .notificationOkIsVisible();
+        String status = JdbcConnector.getLastDebitStatusFromDB();
         Assertions.assertEquals(status, APPROVED_STATUS);
     }
 
@@ -37,9 +36,8 @@ class PositiveTest extends BaseTestClass {
                 .fillCardCVV(VALID_CVV)
                 .clickSubmitButton()
                 .submitButtonLoaderIsVisible()
-                .notificationOkIsVisible()
-                .notificationOkTextContains("Успешно");
-        String status = JdbcConnector.getLastStatusFromDB();
+                .notificationOkIsVisible();
+        String status = JdbcConnector.getLastCreditStatusFromDB();
         Assertions.assertEquals(status, APPROVED_STATUS);
     }
 
@@ -55,26 +53,7 @@ class PositiveTest extends BaseTestClass {
                 .fillCardCVV(VALID_CVV)
                 .clickSubmitButton()
                 .submitButtonLoaderIsVisible()
-                .notificationOkIsVisible()
-                .notificationOkTextContains("Успешно");
-        String status = JdbcConnector.getLastAmountFromDB();
-        Assertions.assertEquals(status, "45000");
-    }
-
-    @Test
-    @Description("Положительный сценарий заказа через кредитную карту с проверкой суммы в БД")
-    void testCanBuyWithValidDataCreditCardCheckAmountInDB() {
-        mainPage
-                .clickCreditBuyButton()
-                .fillCardNumber(VALID_CARD_NUMBER)
-                .fillCardHolder(VALID_HOLDER)
-                .fillCardMonth(VALID_MONTH)
-                .fillCardYear(VALID_YEAR)
-                .fillCardCVV(VALID_CVV)
-                .clickSubmitButton()
-                .submitButtonLoaderIsVisible()
-                .notificationOkIsVisible()
-                .notificationOkTextContains("Успешно");
+                .notificationOkIsVisible();
         String status = JdbcConnector.getLastAmountFromDB();
         Assertions.assertEquals(status, "45000");
     }

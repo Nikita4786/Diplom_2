@@ -28,9 +28,9 @@ public class GenerateData {
         return generateFirstName() + "+-(";
     }
 
-    public static String generateValidMonth() {
+    public static String generateValidMonth(int delta) {
         return LocalDate.now()
-                .plusMonths(1)
+                .plusMonths(delta)
                 .format(DateTimeFormatter.ofPattern("MM"));
     }
 
@@ -38,26 +38,9 @@ public class GenerateData {
         return String.valueOf(faker.number().numberBetween(13, 99));
     }
 
-    public static String generateMonthLessThanCurrent() {
+    public static String generateValidYear(int delta) {
         return LocalDate.now()
-                .minusMonths(1)
-                .format(DateTimeFormatter.ofPattern("MM"));
-    }
-
-    public static String generateValidYear() {
-        return LocalDate.now()
-                .plusYears(1)
-                .format(DateTimeFormatter.ofPattern("yy"));
-    }
-
-    public static String generateCurrentYear() {
-        return LocalDate.now()
-                .format(DateTimeFormatter.ofPattern("yy"));
-    }
-
-    public static String generateYearLessThanCurrent() {
-        return LocalDate.now()
-                .minusYears(1)
+                .plusYears(delta)
                 .format(DateTimeFormatter.ofPattern("yy"));
     }
 
