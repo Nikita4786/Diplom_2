@@ -14,7 +14,7 @@ public class JdbcConnector {
     static final String PASSWORD = ConfProperties.getDbPassword();
 
     static {
-        boolean isMysql = ConfProperties.getDbType().equalsIgnoreCase("mysql");
+        boolean isMysql = System.getProperty("dbt").equalsIgnoreCase("mysql");
         DRIVER = isMysql ? ConfProperties.getMysqlJdbcDriver() : ConfProperties.getPostgresqlJdbcDriver();
         URL = isMysql ? ConfProperties.getMysqlUrl() : ConfProperties.getPostgresqlUrl();
     }
@@ -45,7 +45,11 @@ public class JdbcConnector {
         return getJdbcTemplate().queryForObject(SqlQueries.SELECT_LAST_AMOUNT.getSqlQuery(), String.class);
     }
 
-    public static String getLastStatusFromDB() {
-        return getJdbcTemplate().queryForObject(SqlQueries.SELECT_LAST_STATUS.getSqlQuery(), String.class);
+    public static String getLastDebitStatusFromDB() {
+        return getJdbcTemplate().queryForObject(SqlQueries.SELECT_LAST_STATUS_DEBIT.getSqlQuery(), String.class);
+    }
+
+    public static String getLastCreditStatusFromDB() {
+        return getJdbcTemplate().queryForObject(SqlQueries.SELECT_LAST_STATUS_CREDIT.getSqlQuery(), String.class);
     }
 }

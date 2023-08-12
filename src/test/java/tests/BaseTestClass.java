@@ -24,12 +24,12 @@ public class BaseTestClass {
     final String INVALID_CARD_NUMBER = ConfProperties.getInvalidCardNumber();
     final String VALID_HOLDER = GenerateData.generateValidHolderName();
     final String INVALID_HOLDER = GenerateData.generateInvalidHolderName();
-    final String VALID_YEAR = GenerateData.generateValidYear();
-    final String CURRENT_YEAR = GenerateData.generateCurrentYear();
-    final String LESS_THAN_CURRENT_YEAR = GenerateData.generateYearLessThanCurrent();
-    final String VALID_MONTH = GenerateData.generateValidMonth();
+    final String VALID_YEAR = GenerateData.generateValidYear(1);
+    final String CURRENT_YEAR = GenerateData.generateValidYear(0);
+    final String LESS_THAN_CURRENT_YEAR = GenerateData.generateValidYear(-2);
+    final String VALID_MONTH = GenerateData.generateValidMonth(1);
     final String INVALID_MONTH = GenerateData.generateInvalidMonth();
-    final String LESS_THAN_CURRENT_MONTH = GenerateData.generateMonthLessThanCurrent();
+    final String LESS_THAN_CURRENT_MONTH = GenerateData.generateValidMonth(-2);
     final String VALID_CVV = GenerateData.generateValidCVV();
     final String INVALID_CVV = GenerateData.generateInvalidCVV();
     final String APPROVED_STATUS = ConfProperties.getValidCardStatus();

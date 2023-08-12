@@ -62,4 +62,5 @@ apply plugin: "io.qameta.allure"
 
 test {
     useJUnitPlatform()
+    systemProperty "dbt", System.getProperty("dbt")
 }

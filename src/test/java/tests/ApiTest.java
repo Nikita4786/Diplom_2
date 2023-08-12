@@ -14,8 +14,8 @@ class ApiTest {
     final String VALID_CARD_NUMBER = ConfProperties.getValidCardNumber();
     final String INVALID_CARD_NUMBER = ConfProperties.getInvalidCardNumber();
     final String VALID_HOLDER = GenerateData.generateValidHolderName();
-    final String VALID_YEAR = GenerateData.generateValidYear();
-    final String VALID_MONTH = GenerateData.generateValidMonth();
+    final String VALID_YEAR = GenerateData.generateValidYear(1);
+    final String VALID_MONTH = GenerateData.generateValidMonth(1);
     final String VALID_CVV = GenerateData.generateValidCVV();
     final String INVALID_CVV = GenerateData.generateInvalidCVV();
     final String APPROVED_STATUS = ConfProperties.getValidCardStatus();
